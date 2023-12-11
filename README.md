@@ -2,7 +2,7 @@
 
 A Web Component for filtering items using a text input
 
-**[Demo](https://daviddarnes.github.io/live-filter/demo.html)** | **[Example resource](https://darn.es/)**
+**[Demo](https://daviddarnes.github.io/live-filter/demo.html)**
 
 ## Examples
 
@@ -37,8 +37,8 @@ A Web Component for filtering items using a text input
 This Web Component allows you to:
 
 - Filter a list using a text input field
-- Control how the filtering is presented by using CSS to hook into elements that do or do not match the input value, using `data-live-filter-match="true"` and `data-live-filter-match="false"` respectfully
-- Adjust what items are filtered using the `selector` attribute on the `live-filter` element itself (see demo for an example_
+- Control how the filtering is presented by using CSS to hook into element attributes `data-live-filter-match="true"` and `data-live-filter-match="false"`
+- Adjust what items are filtered using the `selector` attribute on the `live-filter` element itself
 
 ## Installation
 
