@@ -1,6 +1,6 @@
 # `live-filter`
 
-A Web Component for filtering items using a text input
+A Web Component for filtering items using a text input.
 
 **[Demo](https://daviddarnes.github.io/live-filter/demo.html)**
 
