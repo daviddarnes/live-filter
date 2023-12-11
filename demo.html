@@ -7,12 +7,12 @@
 		<title>live-filter Web Component Demo</title>
 
 		<style>
-			[data-live-filter-match="true"] {
+			[data-live-filter-match="true"],
+			[data-live-filter-match="true"] + dd {
 				background: yellow;
 			}
 
 			dt[data-live-filter-match="true"] + dd {
-				background: yellow;
 				font-weight: bold;
 			}
 
