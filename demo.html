@@ -3,14 +3,49 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Demo of component-name Web Component" />
-		<title>component-name Web Component Demo</title>
+		<meta name="description" content="Demo of live-filter Web Component" />
+		<title>live-filter Web Component Demo</title>
 
-		<script type="module" src="component-name.js"></script>
+		<style>
+			[data-live-filter-match="true"] {
+				background: yellow;
+			}
+
+			dt[data-live-filter-match="true"] + dd {
+				background: yellow;
+				font-weight: bold;
+			}
+
+			live-filter:not(:defined) > label {
+				display: none;
+			}
+		</style>
+
+		<script type="module" src="live-filter.js"></script>
 	</head>
 	<body>
-    		<component-name>
-			<!-- slotted content -->
-		</component-name>
+		<live-filter>
+			<label>Filter: <input type="search" aria-controls="list"></label>
+			<ul role="region" id="list" aria-live="polite">
+				<li>African Violet</li>
+				<li>Aloe Tiger Plant</li>
+				<li>Aralia Ming</li>
+				<li>Autograph Tree</li>
+			</ul>
+		</live-filter>
+
+		<hr>
+
+		<live-filter selector="dt">
+			<label>Filter: <input type="search" aria-controls="data"></label>
+			<dl role="region" id="data" aria-live="polite">
+				<dt>Beast of Bodmin</dt>
+				<dd>A large feline inhabiting Bodmin Moor.</dd>
+				<dt>Morgawr</dt>
+				<dd>A sea serpent.</dd>
+				<dt>Owlman</dt>
+				<dd>A giant owl-like creature.</dd>
+			</dl>
+		</live-filter>
 	</body>
 </html>
