@@ -28,15 +28,6 @@ class LiveFilter extends HTMLElement {
     });
   };
 
-  itemContent(item) {
-    if (this.scope) {
-      return [...item.querySelectorAll(this.scope)]
-        .map((item) => item.textContent)
-        .join(" ");
-    }
-    return item.textContent;
-  }
-
   formatString(string) {
     return this.case === "insensitive" ? string.toLowerCase() : string;
   }
@@ -46,13 +37,11 @@ class LiveFilter extends HTMLElement {
   }
 
   get items() {
-    return this.selector
-      ? this.querySelectorAll(this.selector)
-      : this.querySelectorAll("li");
+    return this.querySelectorAll(this.selector);
   }
 
   get selector() {
-    return this.getAttribute("selector");
+    return this.getAttribute("selector") || "li";
   }
 
   get case() {
