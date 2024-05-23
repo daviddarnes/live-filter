@@ -6,11 +6,13 @@ A Web Component for filtering items using a text input.
 
 ## Examples
 
+General usage example:
+
 ```html
 <script type="module" src="live-filter.js"></script>
 
 <live-filter>
-  <label>Filter: <input type="search" aria-controls="list"></label>
+  <label>Filter: <input type="search" aria-controls="list" /></label>
   <ul role="region" id="list" aria-live="polite">
     <li>African Violet</li>
     <li>Aloe Tiger Plant</li>
@@ -18,9 +20,15 @@ A Web Component for filtering items using a text input.
     <li>Autograph Tree</li>
   </ul>
 </live-filter>
+```
+
+Example setting the `selector` option to select `dt` elements:
+
+```html
+<script type="module" src="live-filter.js"></script>
 
 <live-filter selector="dt">
-  <label>Filter: <input type="search" aria-controls="data"></label>
+  <label>Filter: <input type="search" aria-controls="data" /></label>
   <dl role="region" id="data" aria-live="polite">
     <dt>Beast of Bodmin</dt>
     <dd>A large feline inhabiting Bodmin Moor.</dd>
@@ -32,6 +40,22 @@ A Web Component for filtering items using a text input.
 </live-filter>
 ```
 
+Example setting the `case` option to change the search to be case insensitive:
+
+```html
+<script type="module" src="live-filter.js"></script>
+
+<live-filter case="insensitive">
+  <label>Filter: <input type="search" aria-controls="list" /></label>
+  <ul role="region" id="list" aria-live="polite">
+    <li>African Violet</li>
+    <li>Aloe Tiger Plant</li>
+    <li>Aralia Ming</li>
+    <li>Autograph Tree</li>
+  </ul>
+</live-filter>
+```
+
 ## Features
 
 This Web Component allows you to:
@@ -39,6 +63,7 @@ This Web Component allows you to:
 - Filter a list using a text input field
 - Control how the filtering is presented by using CSS to hook into element attributes `data-live-filter-match="true"` and `data-live-filter-match="false"`
 - Adjust what items are filtered using the `selector` attribute on the `live-filter` element itself
+- Adjust the case sensitivity of searching using the `case` attribute on the `live-filter` element itself
 
 ## Installation
 
@@ -59,12 +84,36 @@ Make sure you include the `<script>` in your project (choose one of these):
 
 ```html
 <!-- 3rd party CDN, not recommended for production use -->
-<script type="module" src="https://www.unpkg.com/@daviddarnes/live-filter@1.0.0/live-filter.js"></script>
+<script
+  type="module"
+  src="https://www.unpkg.com/@daviddarnes/live-filter@1.1.0/live-filter.js"
+></script>
 ```
 
 ```html
 <!-- 3rd party CDN, not recommended for production use -->
-<script type="module" src="https://esm.sh/@daviddarnes/live-filter@1.0.0"></script>
+<script
+  type="module"
+  src="https://esm.sh/@daviddarnes/live-filter@1.1.0"
+></script>
+```
+
+### Using `selector` and `case`:
+
+By default `live-filter` will select all the `li` elements within it to search through. However with the `selector` attribute you can pass in a different selector string to search through:
+
+```html
+<live-filter selector="dt">
+  <!-- ... -->
+</live-filter>
+```
+
+By default `live-filter` will be case sensitive, which can be restrictive when searching through proper nouns and titles. This can be adjusted using the `case` attribute and setting the value to `insensitive`:
+
+```html
+<live-filter case="insensitive">
+  <!-- ... -->
+</live-filter>
 ```
 
 ## Credit
