@@ -12,12 +12,15 @@ class LiveFilter extends HTMLElement {
   }
 
   handleInput = (input) => {
+    const value = this.formatString(input.value);
+
     this.items.forEach((item) => {
-      if (!input.value.length) {
+      if (!value.length) {
         item.removeAttribute("data-live-filter-match");
         return;
       }
-      if (!item.textContent.includes(input.value)) {
+
+      if (!this.formatString(item.textContent).includes(value)) {
         item.setAttribute("data-live-filter-match", false);
       } else {
         item.setAttribute("data-live-filter-match", true);
@@ -34,6 +37,10 @@ class LiveFilter extends HTMLElement {
     return item.textContent;
   }
 
+  formatString(string) {
+    return this.case === "insensitive" ? string.toLowerCase() : string;
+  }
+
   get input() {
     return this.querySelector("input");
   }
@@ -46,6 +53,10 @@ class LiveFilter extends HTMLElement {
 
   get selector() {
     return this.getAttribute("selector");
+  }
+
+  get case() {
+    return this.getAttribute("case");
   }
 }
 
