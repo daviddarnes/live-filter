@@ -98,7 +98,7 @@ Make sure you include the `<script>` in your project (choose one of these):
 ></script>
 ```
 
-### Using `selector` and `case`:
+### Using `selector` and `case`
 
 By default `live-filter` will select all the `li` elements within it to search through. However with the `selector` attribute you can pass in a different selector string to search through:
 
