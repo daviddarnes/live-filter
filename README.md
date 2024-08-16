@@ -2,7 +2,7 @@
 
 A Web Component for filtering items using a text input.
 
-**[Demo](https://daviddarnes.github.io/live-filter/demo.html)**
+**[Demo](https://daviddarnes.github.io/live-filter/demo.html)** | **[Further reading](https://darn.es/live-filter-web-component/)**
 
 ## Examples
 
