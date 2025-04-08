@@ -6,12 +6,15 @@ class LiveFilter extends HTMLElement {
   }
 
   connectedCallback() {
-    this.input.addEventListener("input", (event) =>
-      this.handleInput(event.target)
-    );
+    this.input.addEventListener("input", this);
   }
 
-  handleInput = (input) => {
+  handleEvent(event) {
+    if (event.type !== "input") {
+      return;
+    }
+    
+    const input = event.target;
     const value = this.formatString(input.value);
 
     this.items.forEach((item) => {
@@ -21,12 +24,12 @@ class LiveFilter extends HTMLElement {
       }
 
       if (!this.formatString(item.textContent).includes(value)) {
-        item.setAttribute("data-live-filter-match", false);
+        item.setAttribute("data-live-filter-match", "false");
       } else {
-        item.setAttribute("data-live-filter-match", true);
+        item.setAttribute("data-live-filter-match", "true");
       }
     });
-  };
+  }
 
   formatString(string) {
     return this.case === "insensitive" ? string.toLowerCase() : string;
